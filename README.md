@@ -1,102 +1,155 @@
-# OmniDev
+# 🚀 DevHive - Autonomous AI Development Team
 
-## Autonomous Software Engineer Agent Framework
+> **Production-ready AI system that replaces a 5-developer team**
 
-OmniDev provides comprehensive guidelines and specifications for building autonomous software engineer agents that operate within real GitHub development workflows.
+DevHive is an autonomous software engineering system that handles the complete software development lifecycle—from planning and implementation to testing, review, and deployment.
 
-### Overview
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.109-green.svg)](https://fastapi.tiangolo.com/)
+[![Next.js](https://img.shields.io/badge/Next.js-14-black.svg)](https://nextjs.org/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-This repository contains detailed documentation for implementing AI agents that can:
-- Receive and understand development tickets
-- Analyze existing codebases and repository metadata
-- Plan and implement code changes following best practices
-- Generate production-ready, testable Git patches
-- Operate with the precision and judgment of senior developers
+---
 
-### Documentation
+## 📋 Table of Contents
 
-- **[Software Engineer Agent Guidelines](SOFTWARE_ENGINEER_AGENT_GUIDELINES.md)** - Complete specification for autonomous software engineer agents, including:
-  - Role and principles
-  - Input/output format specifications
-  - Best practices and patterns
-  - Policy flags and constraints
-  - Examples and troubleshooting
+- [Overview](#-overview)
+- [Features](#-features)
+- [Quick Start](#-quick-start)
+- [Documentation](#-documentation)
+- [Architecture](#-architecture)
+- [Contributing](#-contributing)
+- [License](#-license)
 
-### Key Features
+---
 
-#### 🎯 **Production-Ready Code**
-Agents produce code that compiles, runs, and passes all tests - never pseudocode or incomplete implementations.
+## 🎯 Overview
 
-#### 🔧 **Surgical Precision**
-Changes are minimal and targeted, modifying only what's necessary to address the specific issue.
+DevHive autonomously handles development tasks by coordinating specialized AI agents:
 
-#### 📋 **Clean Git Patches**
-All outputs are unified diffs in git patch format that can be applied cleanly without conflicts.
+- **PlannerAgent**: Creates detailed implementation plans
+- **FeatureDevAgent**: Writes production-ready code
+- **TesterAgent**: Generates comprehensive tests
+- **RefactorAgent**: Improves code quality
+- **ReviewerAgent**: Performs security and quality reviews
 
-#### 🏛️ **Repository Convention Respect**
-Agents automatically adapt to existing code style, naming conventions, and architectural patterns.
+### What DevHive Does
 
-#### 🔒 **Conservative Dependency Management**
-New dependencies are only introduced when explicitly allowed and properly justified.
+✅ Ingests GitHub issues and creates implementation plans  
+✅ Writes clean, tested, production-ready code  
+✅ Performs static analysis and security scanning  
+✅ Opens and manages pull requests  
+✅ Integrates with CI/CD pipelines  
+✅ Provides full observability and cost tracking  
 
-#### ✅ **Test Integrity**
-Existing tests are preserved and enhanced, never deleted without explicit instruction.
+---
 
-### Agent Input Format
+## ✨ Features
 
-Agents receive structured input including:
-- **Ticket Description**: Objectives, constraints, and acceptance criteria
-- **Code Context**: File snippets, repository structure, and style guides
-- **Test Results**: Test output, lint logs, and build results (optional)
-- **Policy Flags**: Configuration parameters like `LOC_CAP`, `ALLOW_NEW_DEPS`, etc.
+### 🤖 Multi-Agent Architecture
+Five specialized agents working in coordination with focused responsibilities and fail-safe design.
 
-### Agent Output Format
+### 📚 Repository Intelligence
+Full-repo indexing with vector search (RAG), AST-level code understanding, and automatic convention detection.
 
-Agents provide standardized output:
-1. Executive summary of changes
-2. Analysis and reasoning
-3. Detailed change descriptions
-4. Test plan and coverage
-5. Unified diff patches
-6. Verification checklist
-7. Risks and deployment notes
+### 🔐 Security & Policies
+Configurable guardrails, static analysis, security scanning, and dependency auditing.
 
-### Policy Flags
+### 📊 Observability
+Structured logging, token/cost tracking, and Prometheus metrics export.
 
-Configure agent behavior with policy flags:
-- `LOC_CAP=<number>`: Maximum lines of code per file
-- `ALLOW_NEW_DEPS=<true|false>`: Whether new dependencies can be added
-- `TEST_COVERAGE_MIN=<percentage>`: Minimum required test coverage
-- `BREAKING_CHANGES_ALLOWED=<true|false>`: Whether backwards-incompatible changes are permitted
+### 🎨 Modern Dashboard
+Real-time task monitoring, live logs, interactive diff viewer, and metrics visualization.
 
-### Use Cases
+---
 
-- **Automated Bug Fixes**: Analyze issues and generate patches to fix bugs
-- **Feature Implementation**: Implement new features following specifications
-- **Code Refactoring**: Improve code quality while maintaining functionality
-- **Test Coverage**: Add tests to improve coverage in specific areas
-- **Security Patches**: Address security vulnerabilities systematically
+## 🚀 Quick Start
 
-### Getting Started
+### Prerequisites
 
-1. Review the [Software Engineer Agent Guidelines](SOFTWARE_ENGINEER_AGENT_GUIDELINES.md)
-2. Understand the input format your agent will receive
-3. Implement the output format specification
-4. Follow the workflow process and best practices
-5. Test with example tickets and scenarios
+- Python 3.11+
+- Node.js 18+
+- Git
+- OpenAI API key or Anthropic API key
+- GitHub Personal Access Token
 
-### Contributing
+### Installation
 
-Contributions to improve these guidelines are welcome. Please ensure any changes:
-- Maintain clarity and precision
-- Include practical examples
-- Consider real-world development scenarios
-- Follow the existing documentation structure
+```bash
+# Clone repository
+git clone https://github.com/namitzz/OmniDev.git
+cd OmniDev
 
-### License
+# Run setup script
+chmod +x scripts/setup.sh
+./scripts/setup.sh
 
-This project is open source and available for use in building autonomous software engineering agents.
+# Edit .env with your API keys
+nano .env
 
-### Support
+# Start services
+chmod +x scripts/start.sh
+./scripts/start.sh
+```
 
-For questions, issues, or suggestions regarding these guidelines, please open an issue in this repository.
+### Access Dashboard
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## 📚 Documentation
+
+- **[Architecture Guide](ARCHITECTURE.md)** - Complete system architecture and design
+- **[Software Engineer Agent Guidelines](SOFTWARE_ENGINEER_AGENT_GUIDELINES.md)** - Agent specifications
+- **[API Documentation](http://localhost:8000/docs)** - Interactive API docs (when running)
+
+---
+
+## 🏗️ Architecture
+
+```
+GitHub Integration
+        ↓
+  FastAPI Backend
+  ├─ PlannerAgent
+  ├─ FeatureDevAgent
+  ├─ TesterAgent
+  ├─ RefactorAgent
+  └─ ReviewerAgent
+        ↓
+   Next.js Dashboard
+```
+
+See [ARCHITECTURE.md](ARCHITECTURE.md) for detailed architecture documentation.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Add tests
+5. Submit a pull request
+
+See [SOFTWARE_ENGINEER_AGENT_GUIDELINES.md](SOFTWARE_ENGINEER_AGENT_GUIDELINES.md) for coding standards.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see [LICENSE](LICENSE) for details.
+
+---
+
+## 📞 Support
+
+- **Issues**: [GitHub Issues](https://github.com/namitzz/OmniDev/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/namitzz/OmniDev/discussions)
+
+---
+
+**Built with ❤️ for autonomous software development**
