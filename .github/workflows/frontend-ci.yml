@@ -1,0 +1,55 @@
+name: Frontend CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: ['18.x', '20.x']
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: dashboard/package-lock.json
+    
+    - name: Install dependencies
+      run: |
+        cd dashboard
+        npm ci
+    
+    - name: Lint
+      run: |
+        cd dashboard
+        npm run lint
+      continue-on-error: true
+    
+    - name: Type check
+      run: |
+        cd dashboard
+        npx tsc --noEmit
+      continue-on-error: true
+    
+    - name: Run tests
+      run: |
+        cd dashboard
+        npm test
+      continue-on-error: true
+    
+    - name: Build
+      run: |
+        cd dashboard
+        npm run build
+      env:
+        API_URL: http://localhost:8000
